@@ -1,15 +1,35 @@
+/* eslint-disable vue/singleline-html-element-content-newline */
 <template>
   <div class="row center-xs">
-    <carousel :data="data"></carousel>
+    <carousel :mouse-drag="false" :per-page="1">
+      <slide v-for="item in data" :key="item.id" :navigation-prev-label="test">
+        <div class="sliders-item" :key="item.id">
+          <div class="slider-image">
+            <img class="health-goal_img" :src="item.imgUrl" alt="Health needs" />
+          </div>
+          <div class="card-section">
+            <h3>{{ item.title }}</h3>
+            <p class="secondary">{{ item.message }}</p>
+            <a class="button health-goal__section-button" :href="item.buttonUrl">LEARN MORE</a>
+          </div>
+        </div>
+      </slide>
+    </carousel>
   </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel'
 import Vue from 'vue'
-import VueCarousel from '@chenfengyuan/vue-carousel'
+import VueCarousel from 'vue-carousel'
+
 Vue.use(VueCarousel)
 export default {
   name: 'HealthSlider',
+  components: {
+    Carousel,
+    Slide
+  },
   data() {
     return {
       data: [
@@ -20,185 +40,107 @@ export default {
           title: 'Prenatal & Postnatal',
           message:
             ' From preconception to birth to nursing, New Chapter products are there for you, every step of the way.',
-          buttonUrl: '/regimens/prenatal-postnatal',
-          content(createElement, content) {
-            // return createElement(
-            //   'div',
-            //   {
-            //     class:
-            //       'slide sliders-item slick-slide slick-current slick-center',
-            //     props: {
-            //       width: 329
-            //     }
-            //   },
-            //   [
-            //     createElement(
-            //       'div',
-            //       {
-            //         class: 'slider-image'
-            //       },
-            //       createElement('img', {
-            //         class: 'health-goal_img',
-            //         attrs: {
-            //           src: `${content.imgUrl}`
-            //         }
-            //       })
-            //     ),
-            //     createElement(
-            //       'div',
-            //       {
-            //         class: 'card-section'
-            //       },
-            //       [
-            //         createElement('h3', `${content.title}`),
-            //         createElement('p', `${content.message}`, {
-            //           class: 'secondary'
-            //         }),
-            //         createElement('a', {
-            //           class: 'button health-goal__section-button',
-            //           attrs: {
-            //             href: `${content.buttonUrl}`
-            //           }
-            //         })
-            //       ]
-            //     )
-            //   ]
-            // )
-            return createElement('span', `${content.message}`)
-          }
+          buttonUrl: '/regimens/prenatal-postnatal'
+        },
+        {
+          id: 2,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-stress.png',
+          title: 'Stress',
+          message:
+            'Our vitamins and herbal supplements can help you alleviate occasional stress.*',
+          buttonUrl: '/stress'
+        },
+        {
+          id: 3,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-energy.png',
+          title: 'Energy',
+          message:
+            'Maintain a balanced energy level with our vitamins and herbal supplements.*',
+          buttonUrl: '/energy'
+        },
+        {
+          id: 4,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/heart-health.png',
+          title: 'Heart Health',
+          message:
+            'Support your heart with our 100% Wild Alaskan Salmon fish oil, vitamins, herbals, and more.*',
+          buttonUrl: '/regimens/heart-health'
+        },
+        {
+          id: 5,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-mens-wellness.png',
+          title: "Men's Wellness",
+          message:
+            'Support heart, joint, and prostate health at every stage of a man’s life.*',
+          buttonUrl: '/regimens/mens-wellness'
+        },
+        {
+          id: 6,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-womens-wellness.png',
+          title: "Women's Wellness",
+          message:
+            'Maintain a balanced energy level with our vitamins and herbal supplements.*',
+          buttonUrl: '/regimens/womens-wellness'
+        },
+        {
+          id: 7,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-inflamation.png',
+          title: 'Inflammation',
+          message:
+            'Discover our herbal remedies to support pain relief† and a healthy inflammation response.*',
+          buttonUrl: '/inflammation'
+        },
+        {
+          id: 8,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-joint-mobility.png',
+          title: 'Joint & Mobility',
+          message:
+            'See how you can strengthen your bones and maintain healthy movement and joint flexibility.*',
+          buttonUrl: '/regimens/joint-and-mobility/'
+        },
+        {
+          id: 9,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-immune-support.png',
+          title: 'Immune Support',
+          message:
+            'Keep your immune system functioning at a normal level with our products.*',
+          buttonUrl: '/immune-support'
+        },
+        {
+          id: 10,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-sleep.jpg',
+          title: 'Sleep',
+          message:
+            'Support a restful night’s sleep with whole-food, targeted herbs.*',
+          buttonUrl: '/sleep'
+        },
+        {
+          id: 11,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-beauty.jpg',
+          title: 'Beauty',
+          message:
+            'Promotes a youthful appearance with clinically proven results.*',
+          buttonUrl: '/beauty'
+        },
+        {
+          id: 12,
+          imgUrl:
+            'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-healthy-aging.jpg',
+          title: 'Healthy Aging',
+          message:
+            'Feel empowered year after year with supplements for healthy aging.',
+          buttonUrl: '/healthy-aging'
         }
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-stress.png',
-        //   title: 'Stress',
-        //   message:
-        //     'Our vitamins and herbal supplements can help you alleviate occasional stress.*',
-        //   buttonUrl: '/stress',
-        //   content(createElement, content) {
-        //     return createElement(
-        //       'div',
-        //       {
-        //         class:
-        //           'slide sliders-item slick-slide slick-current slick-center',
-        //         props: {
-        //           width: 329
-        //         }
-        //       },
-        //       [
-        //         createElement(
-        //           'div',
-        //           {
-        //             class: 'slider-image'
-        //           },
-        //           createElement('img', {
-        //             class: 'health-goal_img',
-        //             attrs: {
-        //               src: `${content.imgUrl}`
-        //             }
-        //           })
-        //         ),
-        //         createElement(
-        //           'div',
-        //           {
-        //             class: 'card-section'
-        //           },
-        //           [
-        //             createElement('h3', `${content.title}`),
-        //             createElement('p', `${content.message}`, {
-        //               class: 'secondary'
-        //             }),
-        //             createElement('a', {
-        //               class: 'button health-goal__section-button',
-        //               attrs: {
-        //                 href: `${content.buttonUrl}`
-        //               }
-        //             })
-        //           ]
-        //         )
-        //       ]
-        //     )
-        //   }
-        // }
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-energy.png',
-        //   title: 'Energy',
-        //   message:
-        //     'Maintain a balanced energy level with our vitamins and herbal supplements.*',
-        //   buttonUrl: '/energy'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/heart-health.png',
-        //   title: 'Heart Health',
-        //   message:
-        //     'Support your heart with our 100% Wild Alaskan Salmon fish oil, vitamins, herbals, and more.*',
-        //   buttonUrl: '/regimens/heart-health'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-mens-wellness.png',
-        //   title: "Men's Wellness",
-        //   message:
-        //     'Support heart, joint, and prostate health at every stage of a man’s life.*',
-        //   buttonUrl: '/regimens/mens-wellness'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-womens-wellness.png',
-        //   title: "Women's Wellness",
-        //   message:
-        //     'Maintain a balanced energy level with our vitamins and herbal supplements.*',
-        //   buttonUrl: '/regimens/womens-wellness'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-inflamation.png',
-        //   title: 'Inflammation',
-        //   message:
-        //     'Discover our herbal remedies to support pain relief† and a healthy inflammation response.*',
-        //   buttonUrl: '/inflammation'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-joint-mobility.png',
-        //   title: 'Joint & Mobility',
-        //   message:
-        //     'See how you can strengthen your bones and maintain healthy movement and joint flexibility.*',
-        //   buttonUrl: '/regimens/joint-and-mobility/'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-immune-support.png',
-        //   title: 'Immune Support',
-        //   message:
-        //     'Keep your immune system functioning at a normal level with our products.*',
-        //   buttonUrl: '/immune-support'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-sleep.jpg',
-        //   title: 'Sleep',
-        //   message:
-        //     'Support a restful night’s sleep with whole-food, targeted herbs.*',
-        //   buttonUrl: '/sleep'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-beauty.jpg',
-        //   title: 'Beauty',
-        //   message:
-        //     'Promotes a youthful appearance with clinically proven results.*',
-        //   buttonUrl: '/beauty'
-        // },
-        // {
-        //   imgUrl:
-        //     'https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-healthy-aging.jpg',
-        //   title: 'Healthy Aging',
-        //   message:
-        //     'Feel empowered year after year with supplements for healthy aging.',
-        //   buttonUrl: '/healthy-aging'
-        // }
       ]
     }
   }
@@ -214,16 +156,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slide {
-  align-items: center;
-  background-color: #666;
-  color: #999;
-  display: flex;
-  font-size: 1.5rem;
-  justify-content: center;
-  min-height: 10rem;
-}
-
 .button {
   border-style: solid;
   border-width: 1px;
@@ -250,34 +182,21 @@ export default {
   color: #fefefe;
 }
 
-.slick-slide {
-  float: left;
-  height: 100%;
-  min-height: 1px;
-}
-
-.slick-initialized .slick-slide {
-  display: block;
-}
-
-.sliders-item:before {
-  top: 0;
-  content: '';
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  position: absolute;
+.sliders-item {
   background-color: rgba(255, 255, 255, 0.5);
-}
-
-.sliders-item,
-.slick-current:before {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  background-color: transparent;
+  width: 329px;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  height: 99%;
 }
 
 .slider-image img {
   max-width: 100%;
+}
+
+.card-section {
+  padding-bottom: 48px;
+  padding: 48px 30px 66px;
+  transition: opacity 0.3s ease;
 }
 </style>

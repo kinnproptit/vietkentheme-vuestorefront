@@ -49,7 +49,7 @@
           class="col-md-12"
           :class="{ pt40: getEverythingNewCollection && getEverythingNewCollection.length }"
         >
-          <h2 class="align-center cl-accent">{{ $t('Short script') }}</h2>
+          <h2 class="align-center cl-accent">Short script</h2>
         </header>
       </div>
       <short-script />
