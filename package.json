@@ -1,5 +1,5 @@
 {
-  "name": "@vue-storefront/theme-vietken",
+  "name": "@vietkentech/theme-vietken",
   "version": "1.11.0",
   "description": "Vietken theme for Vue Storefront",
   "main": "index.js",
