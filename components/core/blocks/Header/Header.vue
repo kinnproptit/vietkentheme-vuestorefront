@@ -8,7 +8,7 @@
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
           <div class="col-md-4 col-xs-2 middle-xs">
             <div>
-              <!-- <hamburger-icon class="p15 icon bg-cl-secondary pointer" /> -->
+              <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
               <logo width="auto" height="41px" />
             </div>
           </div>
@@ -83,7 +83,7 @@ export default {
   components: {
     AccountIcon,
     // CompareIcon,
-    // HamburgerIcon,
+    HamburgerIcon,
     Logo,
     MicrocartIcon,
     SearchIcon,
