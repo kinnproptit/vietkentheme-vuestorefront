@@ -6,29 +6,23 @@
         href="#"
         title="Menu"
       >{{ $t('Products') }}</a>
-      <ul class="menus">
-        <li class="has-submenu">
-          <a class="prett" title="Dropdown 1">Dropdown 1 + Sub Menu</a>
-          <ul class="submenu">
-            <li>
-              <a href="#" title="Sub Menu">Sub Menu</a>
-            </li>
-            <li>
-              <a href="#" title="Sub Menu">Sub Menu 2</a>
-            </li>
-            <li>
-              <a href="#" title="Sub Menu">Sub Menu 3</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#" title="Dropdown 2">Dropdown 2</a>
-        </li>
-        <li>
-          <a href="#" title="Dropdown 3">Dropdown 3</a>
-        </li>
-      </ul>
-
+      <div class="submenu">
+        <ul class="menus">
+          <li>
+            <router-link
+              class="bg-cl-transparent brdr-none fs-small"
+              :to="localizedRoute('/all-2')"
+              exact
+            >{{ $t('All Products') }}</router-link>
+          </li>
+          <li :key="category.slug" v-for="category in visibleCategories">
+            <router-link
+              class="bg-cl-transparent brdr-none fs-small"
+              :to="categoryLink(category)"
+            >{{ category.name }}</router-link>
+          </li>
+        </ul>
+      </div>
       <!-- <ul class="menus">
           <router-link
             class="block px25 py17 cl-accent no-underline"
@@ -232,23 +226,40 @@ export default {
   }
 }
 
-ul.menus {
+.submenu {
   height: auto;
-  width: 180px;
-  background: white;
+  max-width: 400px;
   position: absolute;
   z-index: 99;
   display: none;
   border: 0;
+  background-color: #fefefe;
+  padding: 0.75rem 1.5rem !important;
+  text-align: left;
+}
+
+ul.menus {
+  max-width: 75.25rem;
+  width: 100%;
+  border-left: 0;
+  margin: auto;
+  padding-left: 0;
 }
 
 .menus li {
   display: block;
   width: 100%;
   font: 12px Arial;
+  padding: 0.75rem;
 }
 
-#menu li:hover ul.menus {
+#menu li:hover .submenu {
   display: block;
+  &.w-cl {
+    color: black;
+  }
+}
+.fs-small {
+  font-size: 14px;
 }
 </style>
