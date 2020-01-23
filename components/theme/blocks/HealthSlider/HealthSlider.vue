@@ -2,7 +2,7 @@
 <template>
   <div class="row center-xs">
     <carousel :mouse-drag="false" :per-page="1">
-      <slide v-for="item in data" :key="item.id" :navigation-prev-label="test">
+      <slide v-for="item in data" :key="item.id">
         <div class="sliders-item" :key="item.id">
           <div class="slider-image">
             <img class="health-goal_img" :src="item.imgUrl" alt="Health needs" />

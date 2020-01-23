@@ -6,24 +6,32 @@
     >
       <div class="container px15 brown-background">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs">
+          <div class="col-md-3 col-xs-2 middle-xs hidden-md">
+            <div>
+              <!-- <hamburger-icon class="p15 icon bg-cl-secondary pointer" /> -->
+              <logo width="auto" height="41px" />
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-2 middle-xs visible-md">
             <div>
               <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
-              <logo width="auto" height="41px" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
             <search-icon class="p15 icon pointer white-color" />
           </div>
-          <div class="col-md-4 col-xs-4 center-xs pt5">
-            <!-- <div>
+          <div class="col-md-6 col-xs-2 center-xs pt5" style="padding: 0;">
+            <div class="visible-xs visible-md">
               <logo width="auto" height="41px" />
-            </div>-->
+            </div>
+            <div class="hidden-md">
+              <custom-navbar />
+            </div>
           </div>
           <div class="col-xs-2 visible-xs">
             <wishlist-icon class="p15 icon pointer white-color" />
           </div>
-          <div class="col-md-4 col-xs-2 end-xs">
+          <div class="col-md-3 col-xs-2 end-xs">
             <div class="inline-flex right-icons">
               <search-icon class="p15 icon hidden-xs pointer white-color" />
               <wishlist-icon class="p15 icon hidden-xs pointer white-color" />
@@ -77,6 +85,7 @@ import Logo from 'theme/components/core/Logo'
 import MicrocartIcon from 'theme/components/core/blocks/Header/MicrocartIcon'
 import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon'
 import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon'
+import CustomNavbar from 'theme/components/theme/blocks/CustomNavbar/CustomNavbar'
 
 export default {
   name: 'Header',
@@ -84,6 +93,7 @@ export default {
     AccountIcon,
     // CompareIcon,
     HamburgerIcon,
+    CustomNavbar,
     Logo,
     MicrocartIcon,
     SearchIcon,
@@ -216,6 +226,26 @@ header {
   a,
   span {
     font-size: 12px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hidden-md {
+    display: block;
+  }
+
+  .visible-md {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .hidden-md {
+    display: none;
+  }
+
+  .visible-md {
+    display: block;
   }
 }
 </style>
