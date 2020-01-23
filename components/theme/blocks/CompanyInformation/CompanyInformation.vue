@@ -87,37 +87,45 @@ export default {
       data1: [
         {
           id: 1,
-          content: 'Helpful information'
+          content:
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
         },
         {
           id: 2,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         },
         {
           id: 3,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         },
         {
           id: 4,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         }
       ],
       data2: [
         {
           id: 5,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         },
         {
           id: 6,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         },
         {
           id: 7,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         },
         {
           id: 8,
-          content: 'Helpful information'
+          content:
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
         }
       ]
     }
@@ -140,6 +148,8 @@ export default {
 
 .fa-ul {
   list-style: none;
+  padding: 0.75rem;
+  margin: 0;
 }
 
 li {
