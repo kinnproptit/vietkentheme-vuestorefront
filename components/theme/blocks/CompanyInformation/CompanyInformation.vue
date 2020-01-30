@@ -137,6 +137,7 @@ export default {
 .background {
   width: 70%;
   background: #ffffff;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .split {

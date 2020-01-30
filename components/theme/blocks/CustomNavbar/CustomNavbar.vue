@@ -5,7 +5,7 @@
         class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl"
         href="#"
         title="Menu"
-      >{{ $t('Products') }}</a>
+      >{{ $t('Produkte') }}</a>
       <div class="submenu">
         <ul class="menus">
           <li>
@@ -13,7 +13,7 @@
               class="bg-cl-transparent brdr-none fs-small"
               :to="localizedRoute('/all-2')"
               exact
-            >{{ $t('All Products') }}</router-link>
+            >{{ $t('All Produkte') }}</router-link>
           </li>
           <li :key="category.slug" v-for="category in visibleCategories">
             <router-link
@@ -58,28 +58,21 @@
         class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl"
         :to="localizedRoute('/health-needs')"
         exact
-      >{{ $t('Health Needs') }}</router-link>
+      >{{ $t('Gesundheit') }}</router-link>
     </li>
     <li v-if="isCurrentMenuShowed" class="bg-cl">
       <router-link
         class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl"
         :to="localizedRoute('/ingredients')"
         exact
-      >{{ $t('Ingredients') }}</router-link>
+      >{{ $t('Zutaten') }}</router-link>
     </li>
     <li v-if="isCurrentMenuShowed" class="bg-cl">
       <router-link
         class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl"
         :to="localizedRoute('/i/about-us')"
         exact
-      >{{ $t('About Us') }}</router-link>
-    </li>
-    <li v-if="isCurrentMenuShowed" class="bg-cl">
-      <router-link
-        class="block px25 py17 brdr-cl-secondary cl-accent no-underline fs-medium-small w-cl"
-        :to="localizedRoute('/rewards')"
-        exact
-      >{{ $t('Rewards') }}</router-link>
+      >{{ $t('Über uns') }}</router-link>
     </li>
   </ul>
 </template>
@@ -220,6 +213,7 @@ export default {
 }
 
 .w-cl {
+  //   font-weight: bold;
   color: white;
   &:hover {
     color: #000000;

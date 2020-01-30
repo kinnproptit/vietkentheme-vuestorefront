@@ -1,6 +1,6 @@
 /* eslint-disable vue/singleline-html-element-content-newline */
 <template>
-  <div class="row center-xs">
+  <div class="row">
     <carousel :mouse-drag="false" :per-page="1">
       <slide v-for="item in data" :key="item.id">
         <div class="sliders-item" :key="item.id">
@@ -15,6 +15,20 @@
         </div>
       </slide>
     </carousel>
+    <!-- <div class="sliders-item">
+      <div class="slider-image">
+        <img
+          class="health-goal_img"
+          src="https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-prenatal-postnatal.png"
+          alt="Health needs"
+        />
+      </div>
+      <div class="card-section">
+        <h3>Bleib gesund mit Selbstheilung</h3>
+        <p class="secondary">Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?</p>
+        <a class="button health-goal__section-button" href="/i/about-us">LEARN MORE</a>
+      </div>
+    </div>-->
   </div>
 </template>
 
@@ -156,6 +170,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.space-evenly {
+  justify-content: space-evenly;
+}
+
 .button {
   border-style: solid;
   border-width: 1px;

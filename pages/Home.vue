@@ -43,7 +43,7 @@
       <tile-links />
     </section>-->
 
-    <section v-if="isOnline" class="container pb60 px15">
+    <!-- <section v-if="isOnline" class="container pb60 px15">
       <div class="row center-xs">
         <header
           class="col-md-12"
@@ -53,7 +53,7 @@
         </header>
       </div>
       <short-script />
-    </section>
+    </section>-->
     <Onboard />
   </div>
 </template>
