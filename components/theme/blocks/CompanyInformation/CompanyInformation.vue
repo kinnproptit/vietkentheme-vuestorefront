@@ -1,3 +1,4 @@
+/* eslint-disable vue/html-self-closing */
 <template>
   <section class="container px15">
     <div class="row center-xs">
@@ -74,23 +75,17 @@
         </div>-->
         <div class="center-xs">
           <div class="usp-slider">
-            <a href="#" class="usp-icon" v-for="icon in icons" :key="icon.id">
+            <a
+              href="#"
+              class="usp-icon"
+              v-for="icon in icons"
+              :class="{active: icon.active}"
+              :key="icon.id"
+              @click="activateIcon(icon.id)"
+            >
               <img :src="icon.icon" />
             </a>
-
-            <!-- <a href="#" class="usp-icon active" v-on:click="activateIcon('1')">
-
-            </a>-->
-            <!-- <a href="#" class="usp-icon" v-bind:class="active: isActive" v-on:click="activateIcon('2')">
-
-              </a>
-              <a href="#" class="usp-icon active" v-on:click="activateIcon('3')">
-              </a>
-              <a href="#" class="usp-icon active" v-on:click="activateIcon('4')">
-              </a>
-              <a href="#" class="usp-icon active" v-on:click="activateIcon('5')">
-            </a>-->
-            <span class="arrow"></span>
+            <!-- <span class="arrow" /> -->
             <div class="usp-bubbles">
               <div class="inner-wrapper">
                 <span class="usp-bubble" v-for="item in data" :key="item.id">
@@ -115,42 +110,42 @@ export default {
     return {
       data: [
         {
-          id: 1,
+          id: 0,
           title: 'Naturbelassen',
           active: true,
           content:
             'Wirkstoffe aus natürlicher, pflanzlicher Quelle und in bioaktivster Form.'
         },
         {
-          id: 2,
+          id: 1,
           title: 'Premium Qualität',
           active: false,
           content:
             'Aus den weltweit besten Anbaugebieten und von den führenden Herstellern.'
         },
         {
-          id: 3,
+          id: 2,
           title: 'Pure-Reinheit',
           active: false,
           content:
             'Pure Wirkstoffe ohne chemische Zusätze. Frei von Belastungen und Gentechnik.'
         },
         {
-          id: 4,
+          id: 3,
           title: 'Innovation',
           active: false,
           content:
             'Kooperation und Erfahrungstausch mit Apotheken, Kliniken, Ärzten, Heilpraktikern und ganzheitlichen Therapeuten sowie führenden Wissenschaftlern und Qualitäts-Herstellern zur Entwicklung einzigartiger, optimierter Rezepturen und Produkte für Sie.'
         },
         {
-          id: 5,
+          id: 4,
           title: 'Nachhaltigkeit',
           active: false,
           content:
             'Nachhaltig angebaute Rohstoffe. Umweltfreundliche Verpackungen aus Glas oder kompostierbarer Stärke.'
         },
         {
-          id: 6,
+          id: 5,
           title: 'Transparenz',
           active: false,
           content:
@@ -189,20 +184,28 @@ export default {
           icon: '../assets/design.svg'
         }
       ]
-    }
+    };
   },
   methods: {
     activateIcon: function(index) {
+      console.log(index);
       this.data = this.data.map(({ id, title, active, content }) => ({
         id,
         title,
         active: false,
         content
-      }))
-      this.data[index].active = true
+      }));
+      this.data[index].active = true;
+
+      this.icons = this.icons.map(({ id, active, icon }) => ({
+        id,
+        active: false,
+        icon
+      }));
+      this.icons[index].active = true;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -263,15 +266,15 @@ li span {
 //   float: left;
 // }
 
-.usp-slider a.active svg {
+.usp-slider a.active img {
   background-color: #e2e2e2;
 }
-.usp-slider a:hover svg,
-.usp-slider a.acttive svg {
+.usp-slider a:hover img,
+.usp-slider a.acttive img {
   fill: #3c3c3e;
 }
 
-.usp-slider a svg {
+.usp-slider a img {
   fill: #a3a3a3;
   border-radius: 50%;
   width: 50px;
@@ -281,10 +284,16 @@ li span {
   padding: 10px;
 }
 
+.usp-slider a img {
+  width: 24px;
+  height: 24px;
+}
+
 @media screen and (min-width: 600px) {
-  .usp-slider a svg {
-    width: 75px;
-    height: 75px;
+  .usp-slider a img {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
   }
 }
 
@@ -340,10 +349,5 @@ li span {
   display: inline-block;
   max-width: 100%;
   padding: 20px 40px;
-}
-
-.usp-slider img {
-  width: 75px;
-  height: 75px;
 }
 </style>
