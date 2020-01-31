@@ -50,7 +50,7 @@
             <div class="col-xs-2 visible-xs">
               <search-icon class="p15 icon pointer white-color" />
             </div>
-            <div class="col-md-6 col-xs-2 center-xs pt5" style="padding: 0;">
+            <div class="col-md-6 col-xs-2 center-xs pt5" style="padding: 0; display: flex">
               <div class="visible-xs visible-md">
                 <logo width="auto" height="41px" />
               </div>
@@ -107,16 +107,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import CurrentPage from 'theme/mixins/currentPage'
-import AccountIcon from 'theme/components/core/blocks/Header/AccountIcon'
+import { mapState } from 'vuex';
+import CurrentPage from 'theme/mixins/currentPage';
+import AccountIcon from 'theme/components/core/blocks/Header/AccountIcon';
 // import CompareIcon from 'theme/components/core/blocks/Header/CompareIcon'
-import HamburgerIcon from 'theme/components/core/blocks/Header/HamburgerIcon'
-import Logo from 'theme/components/core/Logo'
-import MicrocartIcon from 'theme/components/core/blocks/Header/MicrocartIcon'
-import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon'
-import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon'
-import CustomNavbar from 'theme/components/theme/blocks/CustomNavbar/CustomNavbar'
+import HamburgerIcon from 'theme/components/core/blocks/Header/HamburgerIcon';
+import Logo from 'theme/components/core/Logo';
+import MicrocartIcon from 'theme/components/core/blocks/Header/MicrocartIcon';
+import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon';
+import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon';
+import CustomNavbar from 'theme/components/theme/blocks/CustomNavbar/CustomNavbar';
 
 export default {
   name: 'Header',
@@ -138,7 +138,7 @@ export default {
       scrollTop: 0,
       lastScrollTop: 0,
       navbarHeight: 54
-    }
+    };
   },
   computed: {
     ...mapState({
@@ -148,43 +148,43 @@ export default {
     isThankYouPage() {
       return this.$store.state.checkout.isThankYouPage
         ? this.$store.state.checkout.isThankYouPage
-        : false
+        : false;
     }
   },
   beforeMount() {
     window.addEventListener(
       'scroll',
       () => {
-        this.isScrolling = true
+        this.isScrolling = true;
       },
       { passive: true }
-    )
+    );
 
     setInterval(() => {
       if (this.isScrolling) {
-        this.hasScrolled()
-        this.isScrolling = false
+        this.hasScrolled();
+        this.isScrolling = false;
       }
-    }, 250)
+    }, 250);
   },
   methods: {
     gotoAccount() {
-      this.$bus.$emit('modal-toggle', 'modal-signup')
+      this.$bus.$emit('modal-toggle', 'modal-signup');
     },
     hasScrolled() {
-      this.scrollTop = window.scrollY
+      this.scrollTop = window.scrollY;
       if (
         this.scrollTop > this.lastScrollTop &&
         this.scrollTop > this.navbarHeight
       ) {
-        this.navVisible = false
+        this.navVisible = false;
       } else {
-        this.navVisible = true
+        this.navVisible = true;
       }
-      this.lastScrollTop = this.scrollTop
+      this.lastScrollTop = this.scrollTop;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
   <div id="home">
     <head-image />
 
-    <section class="container px15">
+    <section class="container px15" style="margin-bottom: 70px">
       <company-information />
     </section>
     <!-- <promoted-offers /> -->
