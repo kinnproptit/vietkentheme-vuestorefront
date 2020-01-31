@@ -259,6 +259,12 @@ li span {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .background {
+    margin-top: 100px;
+  }
+}
+
 // .usp-slider a {
 //   width: 20%;
 //   float: left;
@@ -291,7 +297,6 @@ li span {
   .usp-slider a img {
     width: 60px;
     height: 60px;
-    margin: 5px;
   }
 }
 
@@ -338,8 +343,8 @@ li span {
 
 @media screen and (min-width: 600px) {
   .usp-slider .usp-bubbles {
-    left: -100px;
-    right: -100px;
+    // left: -100px;
+    // right: -100px;
   }
 }
 
