@@ -1,15 +1,14 @@
 /* eslint-disable vue/html-self-closing */
 <template>
-  <section class="container px15">
-    <div class="row center-xs">
-      <div class="background" style="margin-bottom: 70px;">
-        <header class="col-md-12">
-          <h2 class="align-center cl-accent">{{ $t('Bleib gesund mit Selbstheilung') }}</h2>
-          <h4
-            class="align-center"
-          >{{ $t('Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?')}}</h4>
-        </header>
-        <!-- <div class="split">
+  <div class="row center-xs">
+    <div class="background" style="margin-bottom: 70px;">
+      <header class="col-md-12">
+        <h2 class="align-center cl-accent">{{ $t('Bleib gesund mit Selbstheilung') }}</h2>
+        <h4
+          class="align-center"
+        >{{ $t('Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?')}}</h4>
+      </header>
+      <!-- <div class="split">
           <div class="side">
             <ul class="fa-ul">
               <li v-for="item in data1" :key="item.id">
@@ -72,35 +71,34 @@
               </li>
             </ul>
           </div>
-        </div>-->
-        <div class="center-xs">
-          <div class="usp-slider">
-            <a
-              href="#"
-              class="usp-icon"
-              v-for="icon in icons"
-              :class="{active: icon.active}"
-              :key="icon.id"
-              @click="activateIcon(icon.id)"
-            >
-              <img :src="icon.icon" />
-            </a>
-            <!-- <span class="arrow" /> -->
-            <div class="usp-bubbles">
-              <div class="inner-wrapper">
-                <span class="usp-bubble" v-for="item in data" :key="item.id">
-                  <div v-if="item.active">
-                    <strong>{{ item.title }}:</strong>
-                    {{ item.content }}
-                  </div>
-                </span>
-              </div>
+      </div>-->
+      <div class="center-xs">
+        <div class="usp-slider">
+          <a
+            href="#"
+            class="usp-icon"
+            v-for="icon in icons"
+            :class="{active: icon.active}"
+            :key="icon.id"
+            @click="activateIcon(icon.id)"
+          >
+            <img :src="icon.icon" />
+          </a>
+          <!-- <span class="arrow" /> -->
+          <div class="usp-bubbles">
+            <div class="inner-wrapper">
+              <span class="usp-bubble" v-for="item in data" :key="item.id">
+                <div v-if="item.active">
+                  <strong>{{ item.title }}:</strong>
+                  {{ item.content }}
+                </div>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -210,7 +208,7 @@ export default {
 
 <style lang="scss" scoped>
 .background {
-  width: 70%;
+  min-width: 70%;
   background: #ffffff;
   background: rgba(255, 255, 255, 0.8);
 }
@@ -251,7 +249,7 @@ li span {
   height: 50px;
   margin-bottom: 105px;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 769px) {
   .usp-slider {
     height: 75px;
     margin-bottom: 85px;

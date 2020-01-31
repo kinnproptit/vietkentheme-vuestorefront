@@ -1,7 +1,8 @@
 /* eslint-disable vue/singleline-html-element-content-newline */
 <template>
-  <div class="row">
-    <carousel :mouse-drag="false" :per-page="1">
+  <div class="row center-xs foo2" style="height: 555px; justify-content: center; width: 75%">
+    <!-- <div class="health-support-wrapper"> -->
+    <carousel :mouse-drag="false" :per-page="1" style="width: 50%">
       <slide v-for="item in data" :key="item.id">
         <div class="sliders-item" :key="item.id">
           <div class="slider-image">
@@ -15,29 +16,32 @@
         </div>
       </slide>
     </carousel>
-    <!-- <div class="sliders-item">
-      <div class="slider-image">
-        <img
-          class="health-goal_img"
-          src="https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-prenatal-postnatal.png"
-          alt="Health needs"
-        />
+    <div class="foo" style="display: flex; width: 50%; justify-content: center; height: 97%;">
+      <div class="sliders-item">
+        <div class="slider-image">
+          <img
+            class="health-goal_img"
+            src="https://cdn8.bigcommerce.com/s-zsd73psd0i/content/assets/seo/images/health-goals/health-goal-slider-prenatal-postnatal.png"
+            alt="Health needs"
+          />
+        </div>
+        <div class="card-section">
+          <h3>Bleib gesund mit Selbstheilung</h3>
+          <p class="secondary">Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?</p>
+          <a class="button health-goal__section-button" href="/i/about-us">LEARN MORE</a>
+        </div>
       </div>
-      <div class="card-section">
-        <h3>Bleib gesund mit Selbstheilung</h3>
-        <p class="secondary">Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?</p>
-        <a class="button health-goal__section-button" href="/i/about-us">LEARN MORE</a>
-      </div>
-    </div>-->
+    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel'
-import Vue from 'vue'
-import VueCarousel from 'vue-carousel'
+import { Carousel, Slide } from 'vue-carousel';
+import Vue from 'vue';
+import VueCarousel from 'vue-carousel';
 
-Vue.use(VueCarousel)
+Vue.use(VueCarousel);
 export default {
   name: 'HealthSlider',
   components: {
@@ -156,7 +160,7 @@ export default {
           buttonUrl: '/healthy-aging'
         }
       ]
-    }
+    };
   }
 
   // methods: {
@@ -166,12 +170,35 @@ export default {
   //     }, [`Slide ${vm.$parent.direction}`]);
   //   },
   // },
-}
+};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@media screen and (max-width: 992px) {
+  .foo2 {
+    height: min-content !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+  }
+
+  .foo {
+    padding: 8px 0;
+    width: 100% !important;
+  }
+
+  .VueCarousel {
+    width: 100% !important;
+    padding: 8px 0;
+  }
+}
+
 .space-evenly {
   justify-content: space-evenly;
+}
+
+li.VueCarousel-dot {
+  padding: 10px 5px !important;
 }
 
 .button {
@@ -216,5 +243,10 @@ export default {
   padding-bottom: 48px;
   padding: 48px 30px 66px;
   transition: opacity 0.3s ease;
+}
+
+.VueCarousel-pagination {
+  position: absolute;
+  bottom: 26px;
 }
 </style>
