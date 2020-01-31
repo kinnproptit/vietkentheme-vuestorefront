@@ -1,16 +1,14 @@
 <template>
   <section class="container px15">
-    <!-- <div>
-      <header class="col-md-12">
-        <h2 class="align-center cl-accent">{{ $t('Some helpful information.') }}</h2>
-      </header>
-    </div>-->
     <div class="row center-xs">
-      <div class="background">
+      <div class="background" style="margin-bottom: 70px;">
         <header class="col-md-12">
-          <h2 class="align-center cl-accent">{{ $t('Some helpful information.') }}</h2>
+          <h2 class="align-center cl-accent">{{ $t('Bleib gesund mit Selbstheilung') }}</h2>
+          <h4
+            class="align-center"
+          >{{ $t('Wie wir die revolutionärsten Lebensmittel unserer Zeit entwickeln?')}}</h4>
         </header>
-        <div class="split">
+        <!-- <div class="split">
           <div class="side">
             <ul class="fa-ul">
               <li v-for="item in data1" :key="item.id">
@@ -73,6 +71,37 @@
               </li>
             </ul>
           </div>
+        </div>-->
+        <div class="center-xs">
+          <div class="usp-slider">
+            <a href="#" class="usp-icon" v-for="icon in icons" :key="icon.id">
+              <img :src="icon.icon" />
+            </a>
+
+            <!-- <a href="#" class="usp-icon active" v-on:click="activateIcon('1')">
+
+            </a>-->
+            <!-- <a href="#" class="usp-icon" v-bind:class="active: isActive" v-on:click="activateIcon('2')">
+
+              </a>
+              <a href="#" class="usp-icon active" v-on:click="activateIcon('3')">
+              </a>
+              <a href="#" class="usp-icon active" v-on:click="activateIcon('4')">
+              </a>
+              <a href="#" class="usp-icon active" v-on:click="activateIcon('5')">
+            </a>-->
+            <span class="arrow"></span>
+            <div class="usp-bubbles">
+              <div class="inner-wrapper">
+                <span class="usp-bubble" v-for="item in data" :key="item.id">
+                  <div v-if="item.active">
+                    <strong>{{ item.title }}:</strong>
+                    {{ item.content }}
+                  </div>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -84,50 +113,93 @@ export default {
   name: 'CompanyInformation',
   data() {
     return {
-      data1: [
+      data: [
         {
           id: 1,
+          title: 'Naturbelassen',
+          active: true,
           content:
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+            'Wirkstoffe aus natürlicher, pflanzlicher Quelle und in bioaktivster Form.'
         },
         {
           id: 2,
+          title: 'Premium Qualität',
+          active: false,
           content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+            'Aus den weltweit besten Anbaugebieten und von den führenden Herstellern.'
         },
         {
           id: 3,
+          title: 'Pure-Reinheit',
+          active: false,
           content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+            'Pure Wirkstoffe ohne chemische Zusätze. Frei von Belastungen und Gentechnik.'
         },
         {
           id: 4,
+          title: 'Innovation',
+          active: false,
           content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-        }
-      ],
-      data2: [
+            'Kooperation und Erfahrungstausch mit Apotheken, Kliniken, Ärzten, Heilpraktikern und ganzheitlichen Therapeuten sowie führenden Wissenschaftlern und Qualitäts-Herstellern zur Entwicklung einzigartiger, optimierter Rezepturen und Produkte für Sie.'
+        },
         {
           id: 5,
+          title: 'Nachhaltigkeit',
+          active: false,
           content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+            'Nachhaltig angebaute Rohstoffe. Umweltfreundliche Verpackungen aus Glas oder kompostierbarer Stärke.'
         },
         {
           id: 6,
+          title: 'Transparenz',
+          active: false,
           content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+            'Täglich geöffneter Store - in Köln Innenstadt. Volldeklaration aller Inhaltsstoffe und Verfahren.'
+        }
+      ],
+      icons: [
+        {
+          id: 0,
+          active: true,
+          icon: '../assets/star.svg'
         },
         {
-          id: 7,
-          content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+          id: 1,
+          active: false,
+          icon: '../assets/grow.svg'
         },
         {
-          id: 8,
-          content:
-            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
+          id: 2,
+          active: false,
+          icon: '../assets/light.svg'
+        },
+        {
+          id: 3,
+          active: false,
+          icon: '../assets/like.svg'
+        },
+        {
+          id: 4,
+          active: false,
+          icon: '../assets/smile.svg'
+        },
+        {
+          id: 5,
+          active: false,
+          icon: '../assets/design.svg'
         }
       ]
+    }
+  },
+  methods: {
+    activateIcon: function(index) {
+      this.data = this.data.map(({ id, title, active, content }) => ({
+        id,
+        title,
+        active: false,
+        content
+      }))
+      this.data[index].active = true
     }
   }
 }
@@ -166,5 +238,112 @@ li span {
   .background {
     margin-top: -20%;
   }
+}
+
+.usp-slider {
+  position: relative;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 50px;
+  margin-bottom: 105px;
+}
+@media screen and (min-width: 600px) {
+  .usp-slider {
+    height: 75px;
+    margin-bottom: 85px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// .usp-slider a {
+//   width: 20%;
+//   float: left;
+// }
+
+.usp-slider a.active svg {
+  background-color: #e2e2e2;
+}
+.usp-slider a:hover svg,
+.usp-slider a.acttive svg {
+  fill: #3c3c3e;
+}
+
+.usp-slider a svg {
+  fill: #a3a3a3;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  .usp-slider a svg {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+.usp-slider .arrow {
+  position: absolute;
+  bottom: -35px;
+  // top: 110px;
+  left: 0;
+  transition: 0.3s all;
+  z-index: 2;
+  width: 20%;
+  text-align: center;
+}
+
+.usp-slider .arrow:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 10px 12px;
+  border-color: transparent transparent #e2e2e2 transparent;
+  transition-property: left;
+  transition-duration: 0.6s;
+  transform: translateY(-100%) translateX(-50%);
+}
+
+.usp-slider .usp-bubbles {
+  position: absolute;
+  top: 100%;
+  left: 5px;
+  right: 5px;
+  background-color: #e2e2e2;
+  border-radius: 20px;
+  margin-top: 35px;
+  font-size: 16px;
+  line-height: 22px;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+@media screen and (min-width: 600px) {
+  .usp-slider .usp-bubbles {
+    left: -100px;
+    right: -100px;
+  }
+}
+
+.usp-slider .usp-bubbles .inner-wrapper {
+  display: inline-block;
+  max-width: 100%;
+  padding: 20px 40px;
+}
+
+.usp-slider img {
+  width: 75px;
+  height: 75px;
 }
 </style>
